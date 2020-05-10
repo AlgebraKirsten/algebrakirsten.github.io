@@ -1,9 +1,99 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 	<link rel="manifest" href="/manifest.webmanifest">
-	<script src="serviceworker.js"></script>
+	<script src="/serviceworker.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<style>
+		table, th, td, iframe {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+	</style>
 </head>
-<h1>Hi!</h1>
-<h2>How are you?<h2>
+<body>
+
+
+
+<form class="gform pure-form pure-form-stacked" method="POST"
+action="https://script.google.com/macros/s/AKfycbypvmYLj3tsLtlAD67_LuJMxG9L0zLk_dLyCXFTewkjShnfwxY/exec">
+
+<div class="form-elements">
+    <fieldset class="pure-group">
+      <label for="item">Item: </label>
+      <input id="item" name="Item"/>
+	</fieldset>
+	
+	<fieldset class="pure-group">
+		<label for="user">Choose a user:</label>
+
+		<select id="user" name ="User" required>
+		  <option value="" selected >Please select</option>
+		  <option value="Adri">Adri</option>
+		  <option value="Melanie">Melanie</option>
+		  <option value="Kirsten">Kirsten</option>
+		  <option value="Ouma">Ouma</option>
+		</select> 
+	  </fieldset>
+
+	  <fieldset class="pure-group">
+		<label for="list">List: </label>
+		<br>
+		<input type="radio" id="Algera" name="list" value="Algera">
+ 		 <label for="male">Algera</label><br>
+  		<input type="radio" id="Ouma" name="list" value="Ouma">
+  		<label for="female">Ouma</label><br>
+	  </fieldset>
+
+    <button class="button-success pure-button button-xlarge" onclick="doThis()">
+      <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+  </div>
+
+</form>
+<br>
+<div id="alert" class="alert alert-success" style="visibility: hidden;">
+	<strong>Added!</strong> Uploading to sheet...
+  </div>
+
+	<iframe style="height: 50%; width: 100%;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTWbdUk3dlJ0Jy9rkvQgOhp855SPxu1OGKTGYLtMxX5yZbzjTf6I1rAdlWYDUJ_-e70445Ym-uxShUL/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+
+
+	
+
+	</body>
+<script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('./serviceworker.js').then(function(reg) {
+    console.log('Successfully registered service worker', reg);
+}).catch(function(err) {
+    console.warn('Error whilst registering service worker', err);
+});
+}
+
+</script>
+
+<script>
+    function doThis(){
+		document.getElementById("alert").style.visibility= "visible"; 
+		function go() {
+			window.location.href = "index.html";
+		}
+		
+		setTimeout(go,3000);
+
+
+        
+    }
+
+
+</script>
+
+
+<script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
 
 </html>
