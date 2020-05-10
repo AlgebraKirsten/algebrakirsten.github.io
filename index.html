@@ -23,8 +23,13 @@
 
 
 
-<form class="gform pure-form pure-form-stacked" method="POST"
-action="https://script.google.com/macros/s/AKfycbypvmYLj3tsLtlAD67_LuJMxG9L0zLk_dLyCXFTewkjShnfwxY/exec">
+<form 
+class="gform pure-form pure-form-stacked" 
+>
+<!--
+method="POST"
+action="https://script.google.com/macros/s/AKfycbypvmYLj3tsLtlAD67_LuJMxG9L0zLk_dLyCXFTewkjShnfwxY/exec"
+-->
 
 <div class="form-elements">
     <fieldset class="pure-group">
@@ -85,10 +90,15 @@ navigator.serviceWorker.register('./serviceworker.js').then(function(reg) {
 <script>
     function doThis(){
 		document.getElementById("alert").style.visibility= "visible"; 
-		function go() {
-			//window.location.href = "index.html";
+		window.post = function(url, data) {
+  			return fetch(url, {method: "POST", body: JSON.stringify(data)});
 		}
 		
+		post("https://script.google.com/macros/s/AKfycbypvmYLj3tsLtlAD67_LuJMxG9L0zLk_dLyCXFTewkjShnfwxY/exec?Item=kaas&formGoogleSheetName=Algera", {Item: "osmium"});
+		function go() {
+			//window.location.href = "index.html";
+		//post("https://script.google.com/macros/s/AKfycbypvmYLj3tsLtlAD67_LuJMxG9L0zLk_dLyCXFTewkjShnfwxY/exec", {Item: "osmium", formGoogleSheetName: "Algera"});
+		}		
 		setTimeout(go,3000);
 
 
