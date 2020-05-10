@@ -7,7 +7,8 @@ self.addEventListener("install", function(event) {
      return caches.open("offline").then(function(cache) {
        console.log("caching index and important routes");
       return cache.addAll([
-          "index.html"
+          "index.html",
+          "view.html"
       ]);
      });
  };

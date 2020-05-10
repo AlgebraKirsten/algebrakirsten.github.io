@@ -11,6 +11,7 @@
 
   <link rel="apple-touch-icon" href="/manifest_icon.png">
 
+
 	<style>
 		table, th, td, iframe {
 		  border: 1px solid black;
@@ -53,18 +54,20 @@ action="https://script.google.com/macros/s/AKfycbypvmYLj3tsLtlAD67_LuJMxG9L0zLk_
 	  </fieldset>
 
     <button class="button-success pure-button button-xlarge" onclick="doThis()">
-      <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+      <i class="fa fa-paper-plane"></i>&nbsp;Add</button>
   </div>
+	  
+  
 
 </form>
+
 <br>
+<button onclick="window.location.replace('view.html');">View List</button>
+<br>
+
 <div id="alert" class="alert alert-success" style="visibility: hidden;">
 	<strong>Added!</strong> Uploading to sheet...
   </div>
-
-	<iframe style="height: 50%; width: 100%;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTWbdUk3dlJ0Jy9rkvQgOhp855SPxu1OGKTGYLtMxX5yZbzjTf6I1rAdlWYDUJ_-e70445Ym-uxShUL/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-
-
 	
 
 	</body>
@@ -94,8 +97,6 @@ navigator.serviceWorker.register('./serviceworker.js').then(function(reg) {
 
 
 </script>
-
-
 <script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
 
 </html>
